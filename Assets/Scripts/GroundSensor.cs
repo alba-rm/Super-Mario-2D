@@ -44,7 +44,15 @@ public class GroundSensor : MonoBehaviour
             Coin coin = other.gameObject.GetComponent<Coin>();
             coin.Get();
         }
+       
+        else if (other.gameObject.layer == 10)
+        {
+            Debug.Log("Has ganado");
 
+            Flag flag = other.gameObject.GetComponent<Flag>();
+            flag.Win();
+        }
+     
         if(other.gameObject.tag == "DeadZone")
         {
             Debug.Log("Estoy muerto");

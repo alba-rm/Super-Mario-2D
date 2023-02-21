@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Flag : MonoBehaviour
 {
-
-    Animator anim;
-
     BoxCollider2D boxCollider;
 
     SFXManager sfxManager;
 
     SoundManager soundManager;
+
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -19,21 +18,22 @@ public class Coin : MonoBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-    sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
-    soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-        
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {}
-    public void Get()
-    { 
-        anim.SetBool("IsGet", true);
-        boxCollider.enabled = false;
-        Destroy(this.gameObject, 0.1f);
-        sfxManager.GetCoin();
+    {
+       
     }
-    
+
+    public void Win()
+    {
+        
+        boxCollider.enabled = false;
+        soundManager.StopBGM();
+        sfxManager.FlagWin();
+    }
 
 }
