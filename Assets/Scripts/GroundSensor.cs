@@ -56,10 +56,11 @@ public class GroundSensor : MonoBehaviour
         if(other.gameObject.tag == "DeadZone")
         {
             Debug.Log("Estoy muerto");
-
+           
 
             soundManager.StopBGM();
-            sfxManager.MarioDeath();
+            sfxManager.MarioDeath(); 
+            
         }
     }
     void OnTriggerStay2D(Collider2D other) 

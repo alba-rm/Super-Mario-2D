@@ -29,6 +29,7 @@ public class PlayerControler : MonoBehaviour
         Debug.Log(texto);
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -61,4 +62,7 @@ public class PlayerControler : MonoBehaviour
     {
         rBody.velocity = new Vector2(horizontal * playerSpeed, rBody.velocity.y);
     }
+
+
+
 }

@@ -50,8 +50,10 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
             soundManager.StopBGM();
             sfxManager.MarioDeath();
-        }
 
+        }
+        
+           
         if(collision.gameObject.tag == "ColisionGoomba")
         {
             if(horizontal == 1)
