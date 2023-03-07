@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-
+    public int valor = 1;
+    public GamePoints gamePoints;
     Animator anim;
 
     BoxCollider2D boxCollider;
@@ -29,6 +30,7 @@ public class Coin : MonoBehaviour
     {}
     public void Get()
     { 
+        gamePoints.SumarPuntos(valor);
         anim.SetBool("IsGet", true);
         boxCollider.enabled = false;
         Destroy(this.gameObject, 0.1f);
