@@ -7,22 +7,26 @@ public class Camera : MonoBehaviour
     private Transform target;
     public Vector3 offset;
 
+
     //Vectores para limitar el movimiento de la camara en los ejes X e Y
     public Vector2 limitX;
     public Vector2 limitY;
 
     public float interpolationRatio;
 
+    GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Mario_0").GetComponent<Transform>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if(target != null)
+        if(target != null && gameManager.isGameOver == false)
         {
         //posicion deseada de la camara
         Vector3 desiredPosition = target.position + offset;

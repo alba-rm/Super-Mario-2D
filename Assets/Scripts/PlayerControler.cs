@@ -16,6 +16,8 @@ public class PlayerControler : MonoBehaviour
     public Animator anim;
 
     float horizontal;
+
+    GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
@@ -27,15 +29,19 @@ public class PlayerControler : MonoBehaviour
 
         playerHealth = 10;
         Debug.Log(texto);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        if (gameManager.isGameOver == false)
+        {
 
-        //transform.position += new Vector3(horizontal, 0, 0) * playerSpeed * Time.deltaTime;
+          horizontal = Input.GetAxis("Horizontal");
+
+          //transform.position += new Vector3(horizontal, 0, 0) * playerSpeed * Time.deltaTime;
 
         if(horizontal < 0)
         {
@@ -57,12 +63,19 @@ public class PlayerControler : MonoBehaviour
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             anim.SetBool("IsJumping", true);
         }
+        }
     }
     void FixedUpdate() 
     {
         rBody.velocity = new Vector2(horizontal * playerSpeed, rBody.velocity.y);
     }
 
+    
 
 
+
+
+
+
+        
 }

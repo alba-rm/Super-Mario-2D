@@ -13,12 +13,15 @@ public class GroundSensor : MonoBehaviour
 
     SoundManager soundManager;
 
+    GameManager gameManager;
+
 
     void Awake()
     {
         controller = GetComponentInParent<PlayerControler>();
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other) 
@@ -57,11 +60,12 @@ public class GroundSensor : MonoBehaviour
         if(other.gameObject.tag == "DeadZone")
         {
             Debug.Log("Estoy muerto");
-           
 
             soundManager.StopBGM();
             sfxManager.MarioDeath(); 
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
+            gameManager.GameOver();
+
         }
     }
     void OnTriggerStay2D(Collider2D other) 
