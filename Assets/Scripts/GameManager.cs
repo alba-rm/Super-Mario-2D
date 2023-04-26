@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public float powerUpDuration = 5;
     public float powerUpTimer = 0;
 
+    public List<GameObject> enemiesInScreen = new List<GameObject>();
+
     public void GameOver()
     {
         isGameOver = true;
@@ -23,6 +25,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ShootPowerUp();
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            KillAllEnemies();
+        }
     }
 
     /*void LoadScene()
@@ -48,6 +55,13 @@ public class GameManager : MonoBehaviour
                 canShoot = false;
                 powerUpTimer = 0;
             }
+        }
+    }
+    void KillAllEnemies()
+    {
+        for (int i = 0; i < enemiesInScreen.Count; i++)
+        {
+            Destroy(enemiesInScreen[i]);
         }
     }
 }
