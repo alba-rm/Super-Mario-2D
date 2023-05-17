@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     SFXManager sfxManager;
 
     SoundManager soundManager;
-
+    //examen
     GameManager gameManager;
 
     // Start is called before the first frame update
@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
 
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        //examen
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -86,7 +87,8 @@ public class Enemy : MonoBehaviour
             }
         }
      }
-
+    
+    //examen
     void OnBecameVisible() 
      {
         gameManager.enemiesInScreen.Add(this.gameObject);

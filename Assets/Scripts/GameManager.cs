@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public bool canShoot;
     public float powerUpDuration = 5;
     public float powerUpTimer = 0;
-
+    //examen
     public List<GameObject> enemiesInScreen = new List<GameObject>();
 
     public void GameOver()
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
 
     }
+    //examen
     void Update()
     {
         ShootPowerUp();
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    //examen
     void KillAllEnemies()
     {
         for (int i = 0; i < enemiesInScreen.Count; i++)

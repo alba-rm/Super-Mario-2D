@@ -13,12 +13,14 @@ public class PlayerControler : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rBody;
     private GroundSensor sensor;
+    //examen
     public Animator anim;
 
     float horizontal;
 
     GameManager gameManager;
 
+    //examen
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     
@@ -32,6 +34,7 @@ public class PlayerControler : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rBody = GetComponent<Rigidbody2D>();
         sensor = GameObject.Find("GroundSensor").GetComponent<GroundSensor>();
+        //examen
         anim = GetComponent<Animator>();
 
         playerHealth = 10;
@@ -49,13 +52,14 @@ public class PlayerControler : MonoBehaviour
           horizontal = Input.GetAxis("Horizontal");
 
           //transform.position += new Vector3(horizontal, 0, 0) * playerSpeed * Time.deltaTime;
-
+        //examen
         if(horizontal < 0)
         {
             //spriteRenderer.flipX = true;
             transform.rotation = Quaternion.Euler(0, 180, 0);
             anim.SetBool("IsRunning", true);
         }
+        
         else if(horizontal > 0)
         {
             //spriteRenderer.flipX = false;
@@ -72,7 +76,7 @@ public class PlayerControler : MonoBehaviour
             rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             anim.SetBool("IsJumping", true);
         }
-        
+        //examen no hace falta lo de gameManager = if(Input.GetKeyDown(KeyCode.F))
         if(Input.GetKeyDown(KeyCode.F) && gameManager.canShoot)
         {
             Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);

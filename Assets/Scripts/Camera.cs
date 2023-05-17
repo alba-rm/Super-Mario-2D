@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
+    //examen
     private Transform target;
     public Vector3 offset;
 
@@ -19,11 +20,12 @@ public class Camera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //examen
         target = GameObject.Find("Mario_0").GetComponent<Transform>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
+    // examen
     void LateUpdate()
     {
         if(target != null && gameManager.isGameOver == false)
@@ -43,6 +45,7 @@ public class Camera : MonoBehaviour
 
         transform.position = lerpedPosition; 
         
+        //transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
         }
        
     }

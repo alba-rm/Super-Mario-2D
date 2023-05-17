@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GroundSensor : MonoBehaviour
 {
+    //examen
     private PlayerControler controller;
 
     public bool isGrounded;
@@ -18,7 +19,9 @@ public class GroundSensor : MonoBehaviour
 
     void Awake()
     {
+        //examen
         controller = GetComponentInParent<PlayerControler>();
+
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -29,6 +32,7 @@ public class GroundSensor : MonoBehaviour
         if(other.gameObject.layer == 3)
         {
             isGrounded = true;
+            //examen
             controller.anim.SetBool("IsJumping", false);
         }
         else if (other.gameObject.layer == 6)
@@ -73,6 +77,7 @@ public class GroundSensor : MonoBehaviour
         if(other.gameObject.layer == 3)
         {
             isGrounded = true;
+            //examen
             controller.anim.SetBool("IsJumping", false);
         }
         
@@ -83,6 +88,7 @@ public class GroundSensor : MonoBehaviour
         if(other.gameObject.layer == 3)
         {
             isGrounded = false;
+            //examen
             controller.anim.SetBool("IsJumping", true);
         }
         
